@@ -1,3 +1,10 @@
 #pragma once
-//inherits from ship
-//adds score, fuel, etc
+#include "Entity.h";
+
+class Player : public Entity {
+
+public:
+    static float speed;
+    Player();
+    void Update(const float& dt) override;
+};
