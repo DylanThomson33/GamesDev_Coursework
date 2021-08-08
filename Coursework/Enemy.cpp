@@ -79,12 +79,6 @@ Ghost::Ghost()
     _shape->setOrigin(Vector2f(25.f, 25.f));
 }
 
-<<<<<<< Updated upstream
-void Ghost::Render(sf::RenderWindow& window) const {
-    //sends to renderer
-=======
 void Ghost::Render() {
-    //window.draw(*_shape);
->>>>>>> Stashed changes
     Renderer::queue(_shape.get());
 }

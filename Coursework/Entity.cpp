@@ -52,11 +52,6 @@ void EntityManager::render()
 {
     for (std::shared_ptr<Entity>& e : list)
     {
-<<<<<<< Updated upstream
-        //renders all drawable objects in list
-        e->Render(window);
-=======
         e->Render();
->>>>>>> Stashed changes
     }
 }
