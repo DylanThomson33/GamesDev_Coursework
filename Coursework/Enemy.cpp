@@ -80,6 +80,6 @@ Ghost::Ghost()
 }
 
 void Ghost::Render(sf::RenderWindow& window) const {
-    //window.draw(*_shape);
+    //sends to renderer
     Renderer::queue(_shape.get());
 }

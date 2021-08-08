@@ -37,6 +37,7 @@ void EntityManager::update(const double dt)
 {
     for (std::shared_ptr<Entity>& e : list)
     {
+        //updates all objects in list
         e->Update(dt);
     }
 }
@@ -45,6 +46,7 @@ void EntityManager::render(sf::RenderWindow& window)
 {
     for (std::shared_ptr<Entity>& e : list)
     {
+        //renders all drawable objects in list
         e->Render(window);
     }
 }
