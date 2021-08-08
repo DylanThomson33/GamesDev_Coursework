@@ -9,9 +9,12 @@
 #include "Scene.h";
 
 std::shared_ptr<Scene> activeScene;
-
+sf::Texture spritesheet;
 void Load()
 {
+    if (!spritesheet.loadFromFile("C:/Users/Dylan/year3_games_summer/res/img/invaders_sheet.png")) {
+        std::cerr << "Failed to load spritesheet!" << std::endl;
+    }
     // Load Scene-Local Assets
    gameScene.reset(new GameScene());
    menuScene.reset(new MenuScene());

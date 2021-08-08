@@ -14,9 +14,9 @@ public:
 	void move(const sf::Vector2f& pos);
 
 protected:
-	std::unique_ptr<sf::Shape> _shape;
+	std::unique_ptr<sf::Sprite> _shape;
 	sf::Vector2f _position;
-	Entity(std::unique_ptr<sf::Shape> shp);
+	Entity(std::unique_ptr<sf::Sprite> shp);
 };
 
 struct EntityManager {

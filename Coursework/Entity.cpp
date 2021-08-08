@@ -1,25 +1,12 @@
 #include "Entity.h";
 #include "Global_Values.h";
 #include "Render.h";
-/*
-//constructors 
-Entity::Entity() {};
-Entity::Entity(sf::IntRect ir) : Sprite() {
-	_sprite = ir;
-
-	setTexture(spritesheet);
-	setTextureRect(_sprite);
-};
-
-//deconstructor
-Entity::~Entity() = default;
-
-//update function
-void Entity::Update(const float& dt) {}
-*/
 
 using namespace std;
 using namespace sf;
+
+//constructor
+Entity::Entity(unique_ptr<Sprite> s) : _shape(std::move(s)) {}
 
 const Vector2f Entity::getPosition() { return _position; }
 
@@ -36,8 +23,6 @@ void Entity::Render()
 {
     Renderer::queue(_shape.get());
 }
-
-Entity::Entity(unique_ptr<Shape> s) : _shape(std::move(s)) {}
 
 void EntityManager::update(const double dt)
 {

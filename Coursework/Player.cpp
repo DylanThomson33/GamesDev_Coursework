@@ -10,11 +10,15 @@ float direction;
 
 
 float scalarY = 0.0f;
-
 float scalarX = 0.0f;
 
 
-
+Player::Player()
+    : _acceleration(0.5f), Entity(make_unique<sf::Sprite>()) {
+    _shape->setTexture(spritesheet);
+    _shape->setTextureRect(IntRect(160, 32, 32, 32));
+    _shape->setOrigin(Vector2f(gameWidth / -2, gameHeight / -2));
+}
 
 float calculateDirection(float x, float y)
 {
@@ -79,12 +83,6 @@ void Player::Update(double dt) {
 
     Player::move(Vector2f(scalarX * _acceleration * dt, scalarY * _acceleration * dt));
     Entity::Update(dt);
-}
-
-Player::Player()
-    : _acceleration(0.5f), Entity(make_unique<CircleShape>(25.f)) {
-    _shape->setFillColor(Color::Yellow);
-    _shape->setOrigin(Vector2f(gameWidth / -2, gameHeight / -2));
 }
 
 void Player::Render() 

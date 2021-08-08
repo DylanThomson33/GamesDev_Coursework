@@ -16,14 +16,9 @@ std::shared_ptr <Ghost> g4 = std::make_shared<Ghost>();
 
 void GameScene::load()
 {
-	
-    g1->SetColour(sf::Color::Green);
     g1->setPosition(sf::Vector2f(150, 30));
-    g2->SetColour(sf::Color::Blue);
     g2->setPosition(sf::Vector2f(200, 234));
-    g3->SetColour(sf::Color::Red);
     g3->setPosition(sf::Vector2f(50, 143));
-    g4->SetColour(sf::Color::Magenta);
     g4->setPosition(sf::Vector2f(700, 356));
 
     _ents.list.push_back(p1);
