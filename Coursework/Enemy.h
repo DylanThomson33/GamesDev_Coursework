@@ -19,7 +19,7 @@ private:
 public:
 	void Update(double dt) override;
 	Ghost();
-	void Render(sf::RenderWindow& window) const override;
+	void Render() override;
 
 	void SetColour(sf::Color c) { _shape->setFillColor(c); }
 

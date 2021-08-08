@@ -81,7 +81,7 @@ void Render(sf::RenderWindow& window)
     */
     Renderer::initialise(window);
     //goes through all drawable objects and renders it based on order of queue
-    em.render(window);
+    em.render();
     Renderer::render();
 }
 
