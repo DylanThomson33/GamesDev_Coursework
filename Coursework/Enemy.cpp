@@ -79,7 +79,6 @@ Ghost::Ghost()
     _shape->setOrigin(Vector2f(25.f, 25.f));
 }
 
-void Ghost::Render(sf::RenderWindow& window) const {
-    //window.draw(*_shape);
+void Ghost::Render() {
     Renderer::queue(_shape.get());
 }

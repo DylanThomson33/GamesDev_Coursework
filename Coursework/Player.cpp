@@ -87,8 +87,7 @@ Player::Player()
     _shape->setOrigin(Vector2f(gameWidth / -2, gameHeight / -2));
 }
 
-void Player::Render(sf::RenderWindow& window) const {
-
-    //window.draw(*_shape);
+void Player::Render() 
+{
     Renderer::queue(_shape.get());
 }

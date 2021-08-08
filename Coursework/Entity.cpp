@@ -31,20 +31,27 @@ void Entity::Update(const double dt) {
     _shape->setPosition(_position);
 }
 
+//sends shape to renderer
+void Entity::Render() 
+{
+    Renderer::queue(_shape.get());
+}
+
 Entity::Entity(unique_ptr<Shape> s) : _shape(std::move(s)) {}
 
 void EntityManager::update(const double dt)
 {
     for (std::shared_ptr<Entity>& e : list)
     {
+        //updates all objects in list
         e->Update(dt);
     }
 }
 
-void EntityManager::render(sf::RenderWindow& window)
+void EntityManager::render()
 {
     for (std::shared_ptr<Entity>& e : list)
     {
-        e->Render(window);
+        e->Render();
     }
 }
