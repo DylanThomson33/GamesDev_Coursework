@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 #include "Player.h";
 #include "Global_Values.h";
 #include "Render.h";
@@ -45,7 +43,11 @@ float getDirection()
     direction = calculateDirection(scalarX, scalarY);
     //now, following that calculate bit you might be wondering why i chose to return the variable through this get
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     //its because i live to spite god and couldnt for the life of me get this function to work. i dont know if it was a ghost or what but this is the only way.
+=======
+    //its because i live to spite god and couldnt for the life of me get this function to work. i dont know if it was a ghost or what but this is the only way
+>>>>>>> Stashed changes
 =======
     //its because i live to spite god and couldnt for the life of me get this function to work. i dont know if it was a ghost or what but this is the only way
 >>>>>>> Stashed changes
@@ -102,4 +104,3 @@ void Player::Render(sf::RenderWindow& window) const {
     //window.draw(*_shape);
     Renderer::queue(_shape.get());
 }
->>>>>>> Stashed changes

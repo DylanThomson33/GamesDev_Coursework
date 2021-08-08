@@ -1,8 +1,4 @@
 #pragma once
-<<<<<<< Updated upstream
-//inherits from ship
-//adds score, fuel, etc
-=======
 #include "Entity.h";
 
 
@@ -17,6 +13,10 @@ public:
 	float getDirection();
 	float getSpeed();
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+};
+>>>>>>> Stashed changes
+=======
 };
 >>>>>>> Stashed changes
 =======
