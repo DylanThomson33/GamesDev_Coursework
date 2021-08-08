@@ -1,95 +1,90 @@
 #include "Player.h";
 #include "Global_Values.h";
 #include "Render.h";
-/*
-//player constructor
-using namespace sf;
-Player::Player() : Entity(sf::IntRect(160, 32, 32, 32)) {
-    setPosition({ gameHeight * .5f, gameHeight - 32.f });
-}
-
-//controls
-const Keyboard::Key controls[2] = {
-    Keyboard::A,   // Player1 left
-    Keyboard::D,   // Player1 right
-};
-
-
-//this is where handle player movement, etc
-void Player::Update(const float& dt)
-{
-    float directionY = 0.0f;
-    if (Keyboard::isKeyPressed(Keyboard::S)) {
-        directionY++;
-    }
-    //Move Right
-    if (Keyboard::isKeyPressed(Keyboard::W)) {
-        directionY--;
-    }
-
-    //move left
-    float directionX = 0.0f;
-    if (Keyboard::isKeyPressed(Keyboard::A))
-    {
-        directionX--;
-    }
-    //move right
-    if (Keyboard::isKeyPressed(Keyboard::D))
-    {
-        directionX++;
-    }
-
-    Player::move(Vector2f(directionX * _speed * dt, directionY * _speed * dt));
-
-    Entity::Update(dt);
-   
-
-
-    //checking if fired
-   // if (Keyboard::isKeyPressed(Keyboard::W))
-   // {
-        //if key is pressed, then bullet it fired
-    //    Bullet::Fire(Player::getPosition(), true);
-    //}
-}
-*/
+#include <stdlib.h>
 
 using namespace sf;
 using namespace std;
 
+float direction;
+
+
+float scalarY = 0.0f;
+
+float scalarX = 0.0f;
+
+
+
+
+float calculateDirection(float x, float y)
+{
+    //Hey Dylan, ready to see some cool maths that made me cry at 4:27am this morning?
+
+    //temp variables for your viewing pleasure
+    float dot;
+    float det;
+    float angle;
+    //calculating dot product
+    dot = (0.0f * x) + (-1.0f * y);
+
+    //determinant 
+    det = (0.0f * x) - (-1.0f * y);
+
+    //(0.0f, -1.0f) is north, btw. Angles are clockwise from north.
+    //anyway heres wonderwall
+    angle = atan2(det, dot);
+
+    return angle;
+}
+
+float getDirection()
+{
+
+    direction = calculateDirection(scalarX, scalarY);
+    //now, following that calculate bit you might be wondering why i chose to return the variable through this get
+    //its because i live to spite god and couldnt for the life of me get this function to work. i dont know if it was a ghost o 
+    // -Fio
+    return direction;
+}
+
 void Player::Update(double dt) {
-    //Move in four directions based on keys
-    //when direction = 0 speed will not be applied to that axis
-    //when direction is positive- speed will be that direction
-    //Move left
-    float directionY = 0.0f;
+
+    // Move in four directions based on keys
+        //when direction = 0 speed will not be applied to that axis
+        //when direction is positive- speed will be that direction
+        //Move left
+
     if (Keyboard::isKeyPressed(Keyboard::S)) {
-        directionY++;
+        scalarY++;
     }
     //Move Right
     if (Keyboard::isKeyPressed(Keyboard::W)) {
-        directionY--;
+        scalarY--;
     }
 
     //move left
-    float directionX = 0.0f;
     if (Keyboard::isKeyPressed(Keyboard::A))
     {
-        directionX--;
+        scalarX--;
+
     }
     //move right
     if (Keyboard::isKeyPressed(Keyboard::D))
     {
-        directionX++;
-    }
 
-    Player::move(Vector2f(directionX * _speed * dt, directionY * _speed * dt));
+        scalarX++;
+    }
+    
+
+
+    Player::move(Vector2f(scalarX * _acceleration * dt, scalarY * _acceleration * dt));
+
 
     Entity::Update(dt);
 }
 
 Player::Player()
-    : _speed(200.0f), Entity(make_unique<CircleShape>(25.f)) {
+    : _acceleration(0.2f), Entity(make_unique<CircleShape>(25.f)) {
     _shape->setFillColor(Color::Yellow);
     _shape->setOrigin(Vector2f(25.f, 25.f));
 }
