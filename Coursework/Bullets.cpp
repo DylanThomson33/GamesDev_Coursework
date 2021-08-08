@@ -6,6 +6,7 @@ using namespace sf;
 using namespace std;
 
 //Create definition for the constructor
+bool mode;
 
 Bullets::Bullets() 
 {
