@@ -1,10 +1,21 @@
 #pragma once
 #include "Entity.h";
-
+/*
 class Player : public Entity {
 
 public:
-    static float speed;
+    float _speed;
     Player();
     void Update(const float& dt) override;
+};
+*/
+
+class Player : public Entity {
+private:
+	float _speed;
+
+public:
+	void Update(double dt) override;
+	Player();
+	void Render(sf::RenderWindow& window) const override;
 };

@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h";
+/*
 //inherits from entity
 //checks if player is in radius of gravitational pull
 //adds gravity 
@@ -17,4 +18,4 @@ private:
 	float _radius;
 	bool _applyGravity;
 };
-
+*/
