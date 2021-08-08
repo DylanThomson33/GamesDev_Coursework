@@ -44,7 +44,11 @@ float getDirection()
 
     direction = calculateDirection(scalarX, scalarY);
     //now, following that calculate bit you might be wondering why i chose to return the variable through this get
+<<<<<<< Updated upstream
     //its because i live to spite god and couldnt for the life of me get this function to work. i dont know if it was a ghost or what but this is the only way.
+=======
+    //its because i live to spite god and couldnt for the life of me get this function to work. i dont know if it was a ghost or what but this is the only way
+>>>>>>> Stashed changes
     // -Fio
     return direction;
 }
@@ -75,8 +79,13 @@ void Player::Update(double dt) {
         scalarX++;
     }
     
+<<<<<<< Updated upstream
 
 
+=======
+
+
+>>>>>>> Stashed changes
     Player::move(Vector2f(scalarX * _acceleration * dt, scalarY * _acceleration * dt));
 
     Entity::Update(dt);
