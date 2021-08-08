@@ -61,32 +61,30 @@ void Player::Update(double dt) {
     if (Keyboard::isKeyPressed(Keyboard::W)) {
         scalarY--;
     }
-
     //move left
     if (Keyboard::isKeyPressed(Keyboard::A))
     {
         scalarX--;
-
     }
     //move right
     if (Keyboard::isKeyPressed(Keyboard::D))
     {
-
         scalarX++;
     }
-    
 
+    //shoot weapons
+    if (Keyboard::isKeyPressed(Keyboard::Space)) {
+        scalarY++;
+    }
 
     Player::move(Vector2f(scalarX * _acceleration * dt, scalarY * _acceleration * dt));
-
-
     Entity::Update(dt);
 }
 
 Player::Player()
-    : _acceleration(0.2f), Entity(make_unique<CircleShape>(25.f)) {
+    : _acceleration(0.5f), Entity(make_unique<CircleShape>(25.f)) {
     _shape->setFillColor(Color::Yellow);
-    _shape->setOrigin(Vector2f(25.f, 25.f));
+    _shape->setOrigin(Vector2f(gameWidth / -2, gameHeight / -2));
 }
 
 void Player::Render(sf::RenderWindow& window) const {
