@@ -66,16 +66,19 @@ void Player::Update(double dt) {
     if (Keyboard::isKeyPressed(Keyboard::A))
     {
         scalarX--;
+
     }
     //move right
     if (Keyboard::isKeyPressed(Keyboard::D))
     {
+
         scalarX++;
     }
     
 
 
     Player::move(Vector2f(scalarX * _acceleration * dt, scalarY * _acceleration * dt));
+
 
     Entity::Update(dt);
 }

@@ -1,4 +1,5 @@
 #pragma once
+
 //inherits from ship
 //adds score, fuel, etc
 
@@ -9,6 +10,7 @@ class Player : public Entity {
 private:
 	float _acceleration;
 
+
 public:
 	void Update(double dt) override;
 	Player();
@@ -17,3 +19,4 @@ public:
 	float getSpeed();
 
 };
+
