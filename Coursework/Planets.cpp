@@ -1,4 +1,8 @@
-#include "Planets.h";
+#include "Planets.h"
+#include <iostream>
+#include <time.h>
+#include <random>
+
 /*
 //searches if player is in radius of planet
 bool searchRadius(sf::Vector2f& pos)
@@ -7,3 +11,5 @@ bool searchRadius(sf::Vector2f& pos)
 	return false;
 }
 */
+using namespace sf;
+using namespace std;

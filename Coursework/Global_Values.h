@@ -4,8 +4,8 @@
 #include <memory>
 
 //game height and width
-constexpr uint16_t gameWidth = 800;
-constexpr uint16_t gameHeight = 600;
+constexpr uint16_t gameWidth = 1920;
+constexpr uint16_t gameHeight = 1080;
 
 //spritesheet
 extern sf::Texture spritesheet;
