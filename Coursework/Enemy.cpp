@@ -1,21 +1,6 @@
 #include "Enemy.h";
 #include "Global_Values.h";
 #include "Render.h";
-/*
-Enemy::Enemy() {};
-
-Enemy::Enemy(sf::IntRect ir, sf::Vector2f pos) : Entity(ir) {
-	setOrigin(16, 16);
-	setPosition(pos);
-}
-
-//update
-void Enemy::Update(const float& dt)
-{
-    Entity::Update(dt);
-}
-*/
-
 #include <iostream>
 #include <time.h>
 #include <random>
@@ -73,9 +58,11 @@ void Ghost::Update(double dt) {
     Entity::Update(dt);
 }
 
+//creates ghost object and sets sprite to enemy ship
 Ghost::Ghost()
-    : _speed(200.0f), Entity(make_unique<CircleShape>(25.f)) {
-    _shape->setFillColor(Color::White);
+    : _speed(200.0f), Entity(make_unique<sf::Sprite>()) {
+    _shape->setTexture(spritesheet);
+    _shape->setTextureRect(IntRect(0, 0, 32, 32));
     _shape->setOrigin(Vector2f(25.f, 25.f));
 }
 

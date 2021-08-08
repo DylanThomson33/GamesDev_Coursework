@@ -1,6 +1,7 @@
 #include "Player.h";
 #include "Global_Values.h";
 #include "Render.h";
+<<<<<<< Updated upstream
 #include <stdlib.h>
 
 using namespace sf;
@@ -36,6 +37,8 @@ float calculateDirection(float x, float y)
 
     return angle;
 }
+=======
+>>>>>>> Stashed changes
 
 float getDirection()
 {
@@ -45,6 +48,15 @@ float getDirection()
     //its because i live to spite god and couldnt for the life of me get this function to work. i dont know if it was a ghost o 
     // -Fio
     return direction;
+}
+
+Player::Player()
+//only way to contruct is through entity constructor which takes an sf:sprite----------------
+    : _speed(200.0f), Entity(make_unique<sf::Sprite>()) {
+    //instead of set colour we are going to set rect----------------------
+    _shape->setTexture(spritesheet);
+    _shape->setTextureRect(IntRect(160, 32, 32, 32));
+    _shape->setOrigin(Vector2f(25.f, 25.f));
 }
 
 void Player::Update(double dt) {
@@ -83,6 +95,7 @@ void Player::Update(double dt) {
     Entity::Update(dt);
 }
 
+<<<<<<< Updated upstream
 Player::Player()
     : _acceleration(0.2f), Entity(make_unique<CircleShape>(25.f)) {
     _shape->setFillColor(Color::Yellow);
@@ -92,5 +105,9 @@ Player::Player()
 void Player::Render(sf::RenderWindow& window) const {
 
     //window.draw(*_shape);
+=======
+void Player::Render() 
+{
+>>>>>>> Stashed changes
     Renderer::queue(_shape.get());
 }

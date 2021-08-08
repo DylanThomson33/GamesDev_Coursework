@@ -4,7 +4,10 @@
 //adds score, fuel, etc
 
 #include "Entity.h";
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
 class Player : public Entity {
 private:

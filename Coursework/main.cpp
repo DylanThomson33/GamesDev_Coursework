@@ -7,6 +7,7 @@
 #include "Planets.h";
 #include "Render.h";
 
+<<<<<<< Updated upstream
 
 /*
 sf::Texture spritesheet;
@@ -34,6 +35,24 @@ void Load()
     ents.push_back(e1);
     ents.push_back(p1);
     */
+=======
+std::shared_ptr<Scene> activeScene;
+sf::Texture spritesheet;
+
+void Load()
+{
+    if (!spritesheet.loadFromFile("C:/Users/Dylan/year3_games_summer/res/img/invaders_sheet.png")) {
+        std::cerr << "Failed to load spritesheet!" << std::endl;
+    }
+
+    // Load Scene-Local Assets
+   gameScene.reset(new GameScene());
+   menuScene.reset(new MenuScene());
+   gameScene->load();
+   menuScene->load();
+    // Start at main menu
+    activeScene = menuScene;
+>>>>>>> Stashed changes
 
     g1->SetColour(sf::Color::Green);
     g1->setPosition(sf::Vector2f(150, 30));
