@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 #include "Entity.h";
 #include "Global_Values.h";
 #include "Render.h";
@@ -42,4 +41,4 @@ void EntityManager::render()
         e->Render();
     }
 }
->>>>>>> Stashed changes
+

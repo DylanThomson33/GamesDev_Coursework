@@ -1,20 +1,56 @@
 #include <SFML/Graphics.hpp>
+#include "iostream";
+#include "Global_Values.h";
+#include "Entity.h";
+#include "Enemy.h";
+#include "Player.h";
+#include "Planets.h";
+#include "Render.h";
+#include "Scene.h";
 
-int main(){
-  sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-  sf::CircleShape shape(100.f);
-  shape.setFillColor(sf::Color::Green);
-
-  while (window.isOpen()){
-      sf::Event event;
-      while (window.pollEvent(event)){
-      if (event.type == sf::Event::Closed){
-        window.close();
-      }
+std::shared_ptr<Scene> activeScene;
+sf::Texture spritesheet;
+void Load()
+{
+    if (!spritesheet.loadFromFile("C:/Users/Dylan/Desktop/3rd Year Uni Lectures/Trimester 2/Games Dev/GamesDev_Coursework/res/SpaceSrites.png")) {
+        std::cerr << "Failed to load spritesheet!" << std::endl;
     }
-    window.clear();
-    window.draw(shape);
-    window.display();
-  }
-  return 0;
+    // Load Scene-Local Assets
+    gameScene.reset(new GameScene());
+    menuScene.reset(new MenuScene());
+    settingScene.reset(new SettingScene());
+    gameScene->load();
+    menuScene->load();
+    settingScene->load();
+    // Start at main menu
+    activeScene = menuScene;
+
+}
+
+void Update(sf::RenderWindow& window)
+{
+    static sf::Clock clock;
+    float dt = clock.restart().asSeconds();
+    activeScene->update(dt);
+
+}
+
+void Render(sf::RenderWindow& window)
+{
+    Renderer::initialise(window);
+    activeScene->render();
+    Renderer::render();
+}
+
+
+int main() {
+    sf::RenderWindow window(sf::VideoMode(gameWidth, gameHeight), "CourseWork");
+    Load();
+    while (window.isOpen()) {
+        window.clear();
+        Update(window);
+        Render(window);
+        window.display();
+    }
+    return 0;
 }

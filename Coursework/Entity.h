@@ -1,9 +1,9 @@
 #pragma once
-<<<<<<< Updated upstream
+
 //basic object class
 //position
 //sprite
-=======
+
 #include <SFML/Graphics.hpp>
 
 class Entity {
@@ -39,4 +39,4 @@ struct EntityManager {
 	void update(double dt);
 	void render();
 };
->>>>>>> Stashed changes
+

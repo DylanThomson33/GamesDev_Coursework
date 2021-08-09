@@ -1,5 +1,5 @@
-<<<<<<< Updated upstream
-=======
+
+
 #include "Player.h";
 #include "Global_Values.h";
 #include "Render.h";
@@ -123,4 +123,4 @@ void Player::Render()
 {
     Renderer::queue(_sprite.get());
 }
->>>>>>> Stashed changes
+

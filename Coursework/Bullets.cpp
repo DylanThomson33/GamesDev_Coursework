@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 //bullet.cpp
 #include "Bullets.h"
 #include "Global_Values.h"
@@ -36,4 +35,4 @@ void Bullets::Update(const float& dt) {
     }
 }
 
->>>>>>> Stashed changes
+

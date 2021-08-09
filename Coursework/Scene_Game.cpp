@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 #include "Scene_Game.h";
 #include "Render.h";
 #include "Player.h";
@@ -162,4 +160,4 @@ void GameScene::render()
     Scene::render();
     
 }
->>>>>>> Stashed changes
+

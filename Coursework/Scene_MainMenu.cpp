@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 #include "Scene_MainMenu.h";
 #include "Render.h";
 #include "Global_Values.h";
@@ -50,4 +49,4 @@ void MenuScene::render() {
 	Scene::render();
 }
 
->>>>>>> Stashed changes
+

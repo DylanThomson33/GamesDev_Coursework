@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 #include "Planets.h"
 #include <iostream>
 #include <time.h>
@@ -47,4 +46,4 @@ void Planet::Update(double dt) {
 void Planet::Render() {
     Renderer::queue(_sprite.get());
 }
->>>>>>> Stashed changes
+

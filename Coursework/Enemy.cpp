@@ -1,5 +1,4 @@
-<<<<<<< Updated upstream
-=======
+
 #include "Enemy.h";
 #include "Global_Values.h";
 #include "Render.h";
@@ -72,4 +71,4 @@ void Enemy::Update(double dt) {
 void Enemy::Render() {
     Renderer::queue(_sprite.get());
 }
->>>>>>> Stashed changes
+

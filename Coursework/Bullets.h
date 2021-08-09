@@ -1,8 +1,7 @@
 #pragma once
-<<<<<<< Updated upstream
 //bullet header - just the same as the one used at the end of the space invaders practical
 // stored bullets in list of 256, etc 
-=======
+
 //bullet header
 // stored bullets in list of 256, etc 
 
@@ -22,4 +21,3 @@ public:
 protected:
 	int firedBy; //0 = player, //1 = enemy, //2 = something else?
 };
->>>>>>> Stashed changes

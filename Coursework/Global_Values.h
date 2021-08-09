@@ -1,6 +1,5 @@
 #pragma once
-<<<<<<< Updated upstream
-=======
+
 #include <SFML/Graphics.hpp>
 #include "Scene.h";
 #include <memory>
@@ -68,4 +67,4 @@ public:
 	void load() override;
 };
 
->>>>>>> Stashed changes
+
