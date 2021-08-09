@@ -16,6 +16,7 @@ float scalarX = 0.0f;
 
 //bullet pool
 
+
 Player::Player()
 
     : _acceleration(1.5f), Entity(make_unique<sf::Sprite>()) {
@@ -93,6 +94,10 @@ void Player::Update(double dt) {
 
     //shoot weapons
     if (Keyboard::isKeyPressed(Keyboard::Space)) {
+
+        vector<Bullets> bulletpool;
+
+        bulletpool.push_back(Bullets().Fire(_position.x, _position.y, direction, 0);
     }
 
     
