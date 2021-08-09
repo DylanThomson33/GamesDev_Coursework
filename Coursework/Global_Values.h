@@ -35,6 +35,17 @@ public:
 	void load()override;
 };
 
+//settings menu
+class SettingScene : public Scene {
+private:
+	sf::Text text;
+
+public:
+	SettingScene() = default;
+	void update(double dt) override;
+	void render() override;
+	void load()override;
+};
 
 //declaring game scene class, this is where the gameplay will take place
 
@@ -51,3 +62,4 @@ public:
 	void render() override;
 	void load() override;
 };
+

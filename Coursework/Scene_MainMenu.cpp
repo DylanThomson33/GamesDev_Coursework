@@ -23,11 +23,19 @@ void MenuScene::load() {
 }
 
 void MenuScene::update(double dt) {
+
+	//menu -> game
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
 		activeScene = gameScene;
 	}
+
+	//menu -> settings
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+		activeScene = settingScene;
+	}
+
 	Scene::update(dt);
-	text.setString("Almost Pacman");
+	text.setString("Main menu, press spacebar to play, press S to go to settings");
 }
 
 void MenuScene::render() {

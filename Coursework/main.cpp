@@ -18,8 +18,10 @@ void Load()
     // Load Scene-Local Assets
    gameScene.reset(new GameScene());
    menuScene.reset(new MenuScene());
+   settingScene.reset(new SettingScene());
    gameScene->load();
    menuScene->load();
+   settingScene->load();
     // Start at main menu
     activeScene = menuScene;
 
