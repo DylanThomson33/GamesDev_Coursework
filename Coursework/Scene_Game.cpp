@@ -48,11 +48,35 @@ void GameScene::update(double dt)
         //APPLY GRAVITY TO PLAYER  
         //APPLY A FORCE TO PLAYER THAT PULLS PLAYER TOWARDS CENTRE, DEPENDING ON HOW FAR AWAY PLAYER IS FROM CENTRE 
 
-        //measure distance from centre
-       // sf::Vector2f distance = planet1.get()->getPosition() - p1.get()->getPosition();
 
-        sf::Vector2f gravity = sf::Vector2f(0.0f,-9.8);
-        p1->move(gravity);
+        //x dist and y dist
+        float xdist;
+        float ydist;
+
+        xdist = planet1.get()->getPosition().x - p1.get()->getPosition().x;
+        ydist = planet1.get()->getPosition().y - p1.get()->getPosition().y;
+
+
+        //measure distance from centre
+        sf::Vector2f direction = planet1.get()->getPosition() - p1.get()->getPosition();
+        //measure angle from planet to player
+        
+        
+            float gravity = 5.0f;
+            float tempTime = (float)dt; 
+            float distance = sqrt((xdist * xdist) + (ydist * ydist));
+
+            if (distance < 0.5f && distance > 0.0f)
+            {
+                distance = 0.5f;
+            }
+            if (distance < -0.5f && distance > 0.0f)
+            {
+                distance = -0.5f;
+            }
+            sf::Vector2f force = (direction) * gravity / (float)(pow(distance,1.8));
+
+            p1->move(force);
         
         //p1->move(gravity);
         
