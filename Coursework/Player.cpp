@@ -19,6 +19,7 @@ Player::Player()
     : _acceleration(0.5f), Entity(make_unique<sf::Sprite>()) {
     _sprite->setTexture(spritesheet);
     _sprite->setTextureRect(IntRect(0, 0, 32, 32));
+    _sprite->setOrigin(16, 16);
     _sprite->setPosition(sf::Vector2f(100, 200));
 }
 float calculateDirection(float x, float y)
@@ -73,6 +74,18 @@ void Player::Update(double dt) {
     if (Keyboard::isKeyPressed(Keyboard::D))
     {
         scalarX++;
+    }
+
+    if (Keyboard::isKeyPressed(Keyboard::Left))
+    {
+        direction--;
+        _sprite->setRotation(direction);
+    }
+
+    if (Keyboard::isKeyPressed(Keyboard::Right))
+    {
+        direction++;
+        _sprite->setRotation(direction);
     }
 
     //shoot weapons
