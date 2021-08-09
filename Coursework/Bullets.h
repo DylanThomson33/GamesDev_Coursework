@@ -6,12 +6,13 @@
 
 #include <SFML/Graphics.hpp>
 
-class Bullets : public sf::Sprite {
+class Bullets : public sf::Shape {
 
 public:
 
 	void Update(const float& dt);
 	Bullets(const sf::Vector2f& pos, const int firedBy, float angle);
+	void Fire(const sf::Vector2f& pos, const int firedBy, float angle);
 	~Bullets() = default;
 	Bullets();
 

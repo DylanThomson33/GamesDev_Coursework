@@ -1,23 +1,28 @@
 #include "Player.h";
 #include "Global_Values.h";
 #include "Render.h";
+#include "Bullets.h"
 #include <stdlib.h>
 
 using namespace sf;
 using namespace std;
 
-float direction;
+float direction = 0.0f;
 
 
+float velocity = 0.0f;
 float scalarY = 0.0f;
 float scalarX = 0.0f;
 
+//bullet pool
 
 Player::Player()
-    : _acceleration(0.5f), Entity(make_unique<sf::Sprite>()) {
+
+    : _acceleration(1.5f), Entity(make_unique<sf::Sprite>()) {
     _shape->setTexture(spritesheet);
     _shape->setTextureRect(IntRect(160, 32, 32, 32));
-    _shape->setOrigin(Vector2f(gameWidth / -2, gameHeight / -2));
+    _shape->setOrigin(Vector2f(16.0f, 16.0f));
+    _position = Vector2f(500.0f, 500.0f);
 }
 
 float calculateDirection(float x, float y)
@@ -41,14 +46,12 @@ float calculateDirection(float x, float y)
     return angle;
 }
 
-float getDirection()
+float getPrograde()
 {
-
-    direction = calculateDirection(scalarX, scalarY);
     //now, following that calculate bit you might be wondering why i chose to return the variable through this get
     //its because i live to spite god and couldnt for the life of me get this function to work. i dont know if it was a ghost o 
     // -Fio
-    return direction;
+    return calculateDirection(scalarX, scalarY);;
 }
 
 void Player::Update(double dt) {
@@ -75,11 +78,24 @@ void Player::Update(double dt) {
     {
         scalarX++;
     }
+    if (Keyboard::isKeyPressed(Keyboard::Q))
+    {
+        direction--;
+        _shape.get()->setRotation(direction);
+    }
+    //move right
+    if (Keyboard::isKeyPressed(Keyboard::E))
+    {
+        direction++;
+        _shape.get()->setRotation(direction);
+    }
+
 
     //shoot weapons
     if (Keyboard::isKeyPressed(Keyboard::Space)) {
-        scalarY++;
     }
+
+    
 
     Player::move(Vector2f(scalarX * _acceleration * dt, scalarY * _acceleration * dt));
     Entity::Update(dt);

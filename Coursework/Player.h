@@ -15,7 +15,7 @@ public:
 	void Update(double dt) override;
 	Player();
   
-	float getDirection();
+	float getPrograde();
 	float getSpeed();
   void Render() override;
 };

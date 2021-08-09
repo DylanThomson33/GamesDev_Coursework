@@ -15,7 +15,14 @@ Bullets::Bullets()
 Bullets::Bullets(const sf::Vector2f& pos, const int firedBy, float angle)
 {
     //TODO - Constructor (set pos, speed / angle)
-    Bullets::setPosition(pos.x, pos.y);
+    Bullets::setPosition(pos);
+    projectileType = firedBy;
+    scalarAngle = angle;
+}
+
+void Bullets::Fire(const sf::Vector2f& pos, const int firedBy, float angle)
+{
+    Bullets::setPosition(pos);
     projectileType = firedBy;
     scalarAngle = angle;
 }
