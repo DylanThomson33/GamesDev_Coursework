@@ -12,7 +12,7 @@ void MenuScene::load() {
 	//Set up the text element here!
 
 	// Load font-face from res dir
-	font.loadFromFile("C:/Users/Dylan/year3_games_summer/res/fonts/Roboto-Medium.ttf");
+	font.loadFromFile("D:/University/3rd year/Games Engineering/The Actual Folder Im Using For Slingshot/GamesDev_Coursework/res/Roboto-Medium.ttf");
 	// Set text element to use font
 	text.setFont(font);
 	// set the character size to 24 pixels
