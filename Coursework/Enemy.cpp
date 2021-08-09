@@ -14,7 +14,7 @@ int rand_x;
 Ghost::Ghost()
     : _speed(200.0f), Entity(make_unique<sf::Sprite>()) {
     _shape->setTexture(spritesheet);
-    _shape->setTextureRect(sf::IntRect(0, 0, 32, 32));
+    _shape->setTextureRect(sf::IntRect(0, 0, 16, 16));
     _shape->setOrigin(Vector2f(25.f, 25.f));
 }
 

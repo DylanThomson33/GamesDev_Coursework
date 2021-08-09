@@ -9,8 +9,7 @@
 class Player : public Entity {
 private:
 	float _acceleration;
-
-
+	//sf::Vector2f _speed;
 public:
 	void Update(double dt) override;
 	Player();

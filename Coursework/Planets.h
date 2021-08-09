@@ -9,13 +9,20 @@
 class Planet : public Entity
 {
 public:
+	//constructor
+	Planet();
+
+	//update
+	void Update(double dt) override;
+	//render
+	void Render() override;
+
 	//setters
 	void setRadius(float r) { _radius = r; };
-
 	//getters
 	bool searchRadius(sf::Vector2f& pos);
-private:
+
+protected:
 	float _radius;
-	bool _applyGravity;
 };
 

@@ -12,7 +12,7 @@ std::shared_ptr<Scene> activeScene;
 sf::Texture spritesheet;
 void Load()
 {
-    if (!spritesheet.loadFromFile("C:/Users/Dylan/year3_games_summer/res/img/invaders_sheet.png")) {
+    if (!spritesheet.loadFromFile("C:/Users/Dylan/Desktop/3rd Year Uni Lectures/Trimester 2/Games Dev/GamesDev_Coursework/res/SpaceSrites.png")) {
         std::cerr << "Failed to load spritesheet!" << std::endl;
     }
     // Load Scene-Local Assets

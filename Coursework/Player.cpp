@@ -8,7 +8,6 @@ using namespace std;
 
 float direction;
 
-
 float scalarY = 0.0f;
 float scalarX = 0.0f;
 
@@ -16,14 +15,11 @@ float scalarX = 0.0f;
 Player::Player()
     : _acceleration(0.5f), Entity(make_unique<sf::Sprite>()) {
     _shape->setTexture(spritesheet);
-    _shape->setTextureRect(IntRect(160, 32, 32, 32));
-    _shape->setOrigin(Vector2f(gameWidth / -2, gameHeight / -2));
+    _shape->setTextureRect(IntRect(16, 16, 16, 16));
+    _shape->setPosition(sf::Vector2f(100, 200));
 }
-
 float calculateDirection(float x, float y)
-{
-    //Hey Dylan, ready to see some cool maths that made me cry at 4:27am this morning?
-
+{ 
     //temp variables for your viewing pleasure
     float dot;
     float det;
@@ -79,6 +75,29 @@ void Player::Update(double dt) {
     //shoot weapons
     if (Keyboard::isKeyPressed(Keyboard::Space)) {
         scalarY++;
+    }
+
+
+    //boundaries
+    //if touching right wall
+    if (_position.x > gameWidth)
+    {
+        Player::move(Vector2f(-12.5, 0));
+    }
+    //if touching left wall
+    if (_position.x < 0)
+    {
+        Player::move(Vector2f(12.5, 0));
+    }
+    //if touching top wall
+    if (_position.y > gameHeight)
+    {
+        Player::move(Vector2f(0, -12.5));
+    }
+    //if touching bottom wall 
+    if (_position.y < 0)
+    {
+        Player::move(Vector2f(0, 12.5));
     }
 
     Player::move(Vector2f(scalarX * _acceleration * dt, scalarY * _acceleration * dt));
